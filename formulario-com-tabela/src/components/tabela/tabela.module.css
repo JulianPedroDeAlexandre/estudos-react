@@ -1,0 +1,34 @@
+:root{
+    --orange: #ff6600;
+    --blue: #00e5ff;
+    --bg: #0a0f18;
+    --panel: rgba(15, 25, 35, 0.85);
+    --border: rgba(0, 229, 255, 0.3);
+    --text: #e0f7fa;
+}
+
+.tabela{
+    max-width: 400px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+table{
+    width: 360px;
+    margin: 10px;
+    border: 1px solid var(--border);
+    color: var(--blue);
+    text-align: center;
+
+}
+
+td, th{
+    width: 180px;
+    height: 30px;
+    border: 1px solid var(--blue);
+}
+
+td{
+    color: var(--orange);
+}
