@@ -19,11 +19,18 @@ function App() {
   }
 
   function cadastrar(){
-
+    if(!nome || !senha){
+      return alert("preencha o formulario")
+    }else{
+      setNomeTable(nome);
+      setSenhaTable(senha);
+      setNome("");
+      setSenha("");
+    }
   }
 
   function entrar (){
-    
+
   }
 
   return (
