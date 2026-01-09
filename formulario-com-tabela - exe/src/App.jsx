@@ -1,4 +1,4 @@
-
+import "./globals/style.css"
 
 function App() {
 
