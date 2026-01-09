@@ -10,12 +10,20 @@ function App() {
   const[nomeTabela, setNomeTable] = useState("");
   const[senhaTabela, setSenhaTable] = useState("");
 
+  const handleNome = (e) => {
+    setNome(e.target.value);
+  }
+
+  const handleSenha = (e) => {
+    setSenha(e.target.value);
+  }
+
   function cadastrar(){
-     alert("foi")
+
   }
 
   function entrar (){
-    alert("foi")
+    
   }
 
   return (
@@ -23,8 +31,8 @@ function App() {
       <Form
       nome={nome}
       senha={senha}
-      // handleNome={handleNome}
-      // handleSenha={handleSenha}
+      handleNome={handleNome}
+      handleSenha={handleSenha}
       entrar={entrar}
       cadastrar={cadastrar}
       />
