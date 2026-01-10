@@ -30,6 +30,18 @@ function App() {
   }
 
   function entrar (){
+    if(!nome || !senha)
+      return alert("preencha o formulario")
+
+    if(nome === nomeTabela && senha === senhaTabela){
+      alert("Valido, você acessou!")
+      setNome("");
+      setSenha("");
+    }else{
+      alert("Nome ou senha incorretos, tente novamente")
+      setNome("");
+      setSenha("");
+    }
 
   }
 
