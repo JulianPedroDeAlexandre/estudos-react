@@ -15,7 +15,18 @@ const handleNome = (e) =>{
 }
 
 const handleSenha = (e) =>{
-  setSenha(e.target.value)
+  setSenha(e.target.value);
+}
+
+function cadastrar(){
+  if(!nome || !senha){
+    alert("Formulario incompleto, preencha o formulario");
+  }else{
+    setNomeTabela(nome);
+    setSenhaTabela(senha);
+    setNome("");
+    setSenha("");
+  }
 }
 
   return (
@@ -25,9 +36,13 @@ const handleSenha = (e) =>{
     senha={senha}
     handleName={handleNome}
     handleSenha={handleSenha}
+    cadastrar={cadastrar}
 
     />
-    <Table/>
+    <Table
+    nomeTabela={nomeTabela}
+    senhaTabela={senhaTabela}
+    />
     </>
   )
 }
