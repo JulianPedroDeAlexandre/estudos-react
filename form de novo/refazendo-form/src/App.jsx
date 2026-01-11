@@ -1,4 +1,5 @@
 import FormButtons from "./components/form-buttons/FormButtons"
+import Table from "./components/table/Table"
 import "./globals/style.css"
 
 function App() {
@@ -6,6 +7,7 @@ function App() {
   return (
     <>
     <FormButtons/>
+    <Table/>
     </>
   )
 }
