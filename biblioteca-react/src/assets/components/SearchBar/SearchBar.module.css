@@ -1,0 +1,22 @@
+.searchBar {
+  display: flex;
+  gap: 8px;
+}
+
+.searchBar input {
+  flex: 1;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: #0c0f13;
+  color: var(--text);
+}
+
+.searchBar button {
+  background: var(--accent);
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
