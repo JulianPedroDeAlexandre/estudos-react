@@ -1,0 +1,20 @@
+:root {
+  --bg: #0f1216;
+  --card: #171b22;
+  --text: #e6e6e6;
+  --muted: #a9b0bb;
+  --accent: #4f8cff;
+  --danger: #ff6b6b;
+  --border: #2a2f38;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+h1, h2 {
+  margin: 0 0 12px;
+}
