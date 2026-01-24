@@ -2,6 +2,7 @@ import { useState } from "react"
 function App() {
 
   const [password, setPassword] = useState("")
+  const [copiar, setCopiar] = useState("Copiar");
 
   function generate() {
     const characters = "'1234567890-=!@#$%¨&*()_+qwertyuiop[asdfghjklç~]zxcvbnm,.;/QWERTYUIOP{ASDFGHJKLÇ^}ZXCVBNM<>:?"
@@ -15,12 +16,19 @@ function App() {
       newpassworld += characters[position]
     }
     setPassword(newpassworld)
+    setCopiar("Copiar")
+  }
+
+  function copyToClipBoard(){
+    window.navigator.clipboard.writeText(password)
+    setCopiar("Copiado")
+
   }
   return (
     <div className="app">
       <h1>Gerador de senha</h1>
       <button onClick={generate}>Gerar</button>
-      <button>Copiar</button>
+      <button onClick={copyToClipBoard}>{copiar}</button>
       <div>{password}</div>
     </div>
   )
