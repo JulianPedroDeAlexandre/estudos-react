@@ -1,6 +1,6 @@
 import style from "./Form.module.css"
 
-const Form = (nome, handleName, senha, handleSenha, cadastrar, entrar) => {
+const Form = ({nome, handleName, senha, handleSenha, cadastrar, entrar}) => {
   return (
     <div>
         <label htmlFor="nome">Nome: </label>
