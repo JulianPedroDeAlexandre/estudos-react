@@ -2,7 +2,7 @@ import style from "./Form.module.css"
 
 const Form = ({nome, handleName, senha, handleSenha, cadastrar, entrar}) => {
   return (
-    <div>
+    <div className={style.form}>
         <label htmlFor="nome">Nome: </label>
         <input type="text" value={nome} onChange={handleName}/>
         <label htmlFor="senha">Senha: </label>
