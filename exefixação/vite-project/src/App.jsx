@@ -29,12 +29,16 @@ function App() {
 
   function entrar() {
     if (!nome || !senha) {
-      alert("Preencha o formulario")
+      alert("Preencha o formulario");
     } else {
       if (nome === nomeTabela && senha === senhaTabela) {
-        alert("login efetuado com sucesso")
+        alert("login efetuado com sucesso");
+        setNome("");
+        setSenha("");
       } else {
-        alert("erro ao efetuar login, nome ou senha incorretos")
+        alert("erro ao efetuar login, nome ou senha incorretos");
+        setNome("");
+        setSenha("");
       }
     }
 
@@ -48,7 +52,8 @@ function App() {
       console.log(nome)
       setSenhaTabela(senha)
       console.log(senha)
-
+      setNome("");
+      setSenha("");
     }
   }
 

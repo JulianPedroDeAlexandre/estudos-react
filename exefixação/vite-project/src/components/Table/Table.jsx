@@ -7,7 +7,7 @@ const Table = ({nomeTabela, senhaTabela}) => {
             <thead>
                 <tr>
                     <th>Nome:</th>
-                    <th>Senha::</th>
+                    <th>Senha:</th>
                 </tr>
             </thead>
             <tbody>
