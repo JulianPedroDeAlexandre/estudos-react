@@ -2,6 +2,7 @@ import Form from "./components/form/Form"
 import "../src/globals/globals.css"
 import Table from "./components/Table/Table"
 import { useState } from "react"
+import Mensagemerro from "./components/mensagemErro/Mensagemerro";
 
 function App() {
 
@@ -9,6 +10,7 @@ function App() {
   const [senha, setSenha] = useState("");
   const [nomeTabela, setNomeTabela] = useState("");
   const [senhaTabela, setSenhaTabela] = useState("");
+  const [mensagem, setMensagem] = useState("");
 
   const handleName = (e) => {
     setNome(e.target.value)
@@ -29,14 +31,14 @@ function App() {
 
   function entrar() {
     if (!nome || !senha) {
-      alert("Preencha o formulario");
+      return setMensagem("Preencha o formulario")
     } else {
       if (nome === nomeTabela && senha === senhaTabela) {
-        alert("login efetuado com sucesso");
+        setMensagem("Login efetuado com sucesso")
         setNome("");
         setSenha("");
       } else {
-        alert("erro ao efetuar login, nome ou senha incorretos");
+        setMensagem("Erro, preencha o formulario novamente")
         setNome("");
         setSenha("");
       }
@@ -46,15 +48,15 @@ function App() {
 
   function cadastrar() {
     if (!nome || !senha) {
-      alert("Preencha o formulario")
-    } else {
+      return setMensagem("Preencha o formulario")
+    } 
       setNomeTabela(nome)
       console.log(nome)
       setSenhaTabela(senha)
       console.log(senha)
       setNome("");
       setSenha("");
-    }
+    
   }
 
   return (
@@ -71,6 +73,7 @@ function App() {
         nomeTabela={nomeTabela}
         senhaTabela={senhaTabela}
       />
+      <Mensagemerro mensagem={mensagem}/>
     </>
   )
 }
