@@ -2,7 +2,7 @@ import Form from "./components/form/Form"
 import "../src/globals/globals.css"
 import Table from "./components/Table/Table"
 import { useState } from "react"
-import Mensagemerro from "./components/mensagemErro/Mensagemerro";
+import Modal from "./components/modal/Modal";
 
 function App() {
 
@@ -26,6 +26,9 @@ function App() {
     }
     if (e.key === "Enter" && nomeTabela && senhaTabela) {
       entrar();
+    }
+    if (e.key === "Enter" && mensagem){
+      fechar();
     }
   }
 
@@ -59,6 +62,10 @@ function App() {
     
   }
 
+  function fechar(){
+     setMensagem("")
+  }
+
   return (
     <>
       <Form
@@ -73,9 +80,12 @@ function App() {
         nomeTabela={nomeTabela}
         senhaTabela={senhaTabela}
       />
-      <Mensagemerro mensagem={mensagem}/>
+      <Modal 
+      mensagem={mensagem} 
+      fechar={fechar} 
+      />
     </>
-  )
+  );
 }
 
 export default App
