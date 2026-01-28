@@ -34,12 +34,15 @@ src/
    git clone https://github.com/seu-usuario/exercicio-react.git
 
 2. Instale as dependências:
+    ```bash
 npm install
 
 3. Execute o projeto:
+    ```bash
 npm run dev
 
 4. Acesse no navegador:
+    ```bash
 http://localhost:5173
 
 Tecnologias Utilizadas
