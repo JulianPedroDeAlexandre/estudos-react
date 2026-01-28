@@ -1,16 +1,68 @@
-# React + Vite
+# Exercício React - Cadastro, Login e Remoção com Tabela
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este projeto é um exercício em **React** que implementa um fluxo simples de cadastro de usuários, login e remoção, utilizando **hooks** (`useState`) e componentes funcionais.
 
-Currently, two official plugins are available:
+## Funcionalidades
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Cadastro**: adiciona um usuário com nome e senha à tabela.
+- **Login**: verifica se o nome e senha digitados existem na tabela.
+- **Remoção**: exclui um usuário da tabela quando nome e senha correspondem.
+- **Modal**: exibe mensagens de feedback (sucesso, erro, avisos).
+- **Tecla Enter**: dispara ações contextuais:
+  - Cadastro quando não há dados preenchidos.
+  - Login quando há usuários cadastrados.
+  - Remoção quando nome e senha correspondem.
+  - Fechamento do modal quando ativo.
 
-## React Compiler
+## Estrutura de Pastas
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+src/
+├── App.jsx
+├── globals/
+│   └── style.css
+├── form/
+│   ├── Form.jsx
+│   └── Form.module.css
+├── table/
+│   ├── Table.jsx
+│   └── Table.module.css
+└── modal/
+├── Modal.jsx
+└── Modal.module.css
 
-## Expanding the ESLint configuration
+Código
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Como executar
+
+1. Clone este repositório:
+   ```bash
+   git clone https://github.com/seu-usuario/exercicio-react.git
+Instale as dependências:
+
+bash
+npm install
+Execute o projeto:
+
+bash
+npm run dev
+Acesse no navegador:
+
+Código
+http://localhost:5173
+Tecnologias utilizadas
+React
+
+Vite (para ambiente de desenvolvimento)
+
+CSS Modules (para estilização)
+
+Aprendizados
+Uso de useState para gerenciar estado local.
+
+Manipulação de arrays com map e filter.
+
+Validação de inputs e feedback ao usuário.
+
+Captura da tecla Enter com onKeyDown e preventDefault.
+
+Componentização e reutilização de lógica.
