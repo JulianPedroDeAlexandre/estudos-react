@@ -1,68 +1,63 @@
 # Exercício React - Cadastro, Login e Remoção com Tabela
 
-Este projeto é um exercício em **React** que implementa um fluxo simples de cadastro de usuários, login e remoção, utilizando **hooks** (`useState`) e componentes funcionais.
+Este projeto é um exercício em **React**, implementando um fluxo simples de cadastro de usuários, login e remoção, utilizando hooks (`useState`) e componentes funcionais.
 
 ## Funcionalidades
 
-- **Cadastro**: adiciona um usuário com nome e senha à tabela.
-- **Login**: verifica se o nome e senha digitados existem na tabela.
-- **Remoção**: exclui um usuário da tabela quando nome e senha correspondem.
-- **Modal**: exibe mensagens de feedback (sucesso, erro, avisos).
-- **Tecla Enter**: dispara ações contextuais:
-  - Cadastro quando não há dados preenchidos.
-  - Login quando há usuários cadastrados.
-  - Remoção quando nome e senha correspondem.
-  - Fechamento do modal quando ativo.
+- Cadastro de usuários com nome e senha.
+- Login verificando se o usuário existe na tabela.
+- Remoção de usuários quando nome e senha correspondem.
+- Modal para exibir mensagens de feedback.
+- Suporte à tecla Enter para acionar o login.
 
 ## Estrutura de Pastas
 
 src/
 ├── App.jsx
 ├── globals/
-│   └── style.css
+│ └── style.css
 ├── form/
-│   ├── Form.jsx
-│   └── Form.module.css
+│ ├── Form.jsx
+│ └── Form.module.css
 ├── table/
-│   ├── Table.jsx
-│   └── Table.module.css
+│ ├── Table.jsx
+│ └── Table.module.css
 └── modal/
 ├── Modal.jsx
 └── Modal.module.css
 
-Código
 
-## Como executar
+## Como Executar
 
 1. Clone este repositório:
    ```bash
    git clone https://github.com/seu-usuario/exercicio-react.git
-Instale as dependências:
 
-bash
+2. Instale as dependências:
 npm install
-Execute o projeto:
 
-bash
+3. Execute o projeto:
 npm run dev
-Acesse no navegador:
 
-Código
+4. Acesse no navegador:
 http://localhost:5173
-Tecnologias utilizadas
+
+Tecnologias Utilizadas
+
 React
 
-Vite (para ambiente de desenvolvimento)
+Vite
 
-CSS Modules (para estilização)
+CSS Modules
 
 Aprendizados
-Uso de useState para gerenciar estado local.
+
+Uso de useState para gerenciamento de estado.
 
 Manipulação de arrays com map e filter.
 
-Validação de inputs e feedback ao usuário.
+Validação e feedback ao usuário.
 
-Captura da tecla Enter com onKeyDown e preventDefault.
+Captura da tecla Enter com onKeyDown.
 
-Componentização e reutilização de lógica.
+Componentização e organização de código.
