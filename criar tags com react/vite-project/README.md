@@ -35,15 +35,15 @@ src/
 
 2. Instale as dependências:
     ```bash
-npm install
+    npm install
 
 3. Execute o projeto:
     ```bash
-npm run dev
+    npm run dev
 
 4. Acesse no navegador:
     ```bash
-http://localhost:5173
+    http://localhost:5173
 
 Tecnologias Utilizadas
 
