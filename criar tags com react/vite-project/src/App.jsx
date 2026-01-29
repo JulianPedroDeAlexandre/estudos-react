@@ -1,8 +1,10 @@
-import "../src/globals/style.css"
+import React from "react";
+import "./globals/style.css"
 import Form from "./form/Form"
 import Modal from "./modal/Modal";
 import Table from "./table/Table"
-import { useState } from "react"
+// import React, { useState } from "react";
+import { useState } from "react";
 
 function App() {
 
@@ -32,6 +34,8 @@ function App() {
   function cadastrar() {
     if (!nome || !senha) {
       setModal("Preencha o formulário");
+      setNome("");
+      setSenha("");
       return;
     }
 
@@ -50,11 +54,15 @@ function App() {
 
     if (!nome || !senha) {
       setModal("Preencha o formulário");
+      setNome("");
+      setSenha("");
       return;
     }
 
     if (adiciona.length === 0) {
       setModal("Nenhum usuário cadastrado. Preencha a tabela primeiro.");
+      setNome("");
+      setSenha("");
       return;
     }
 
@@ -80,10 +88,12 @@ function App() {
 
     if (novaLista.length === adiciona.length) {
       setModal("Nada encontrado")
+      setNome("");
+      setSenha("");
     } else {
-      if (confirm("Deseja realmente remover este usuário?")) { 
-        
-      setModal("Removido")
+      if (confirm("Deseja realmente remover este usuário?")) {
+
+        setModal("Removido")
       }
       setNome("");
       setSenha("");

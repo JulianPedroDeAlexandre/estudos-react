@@ -1,3 +1,5 @@
+import React from "react";
+
 import style from "./Table.module.css"
 
 const Table = ({ adiciona }) => {

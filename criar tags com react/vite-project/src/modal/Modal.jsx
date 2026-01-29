@@ -1,4 +1,7 @@
+import React from "react";
+
 import style from "./Modal.module.css"
+
 const Modal = ({modal, fechar}) => {
     if(!modal)
         return null
