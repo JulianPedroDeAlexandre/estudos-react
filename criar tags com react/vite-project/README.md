@@ -10,22 +10,6 @@ Este projeto é um exercício em **React**, implementando um fluxo simples de ca
 - Modal para exibir mensagens de feedback.
 - Suporte à tecla Enter para acionar o login.
 
-## Estrutura de Pastas
-
-src/
-├── App.jsx
-├── globals/
-│ └── style.css
-├── form/
-│ ├── Form.jsx
-│ └── Form.module.css
-├── table/
-│ ├── Table.jsx
-│ └── Table.module.css
-└── modal/
-├── Modal.jsx
-└── Modal.module.css
-
 
 ## Como Executar
 
@@ -64,3 +48,18 @@ Validação e feedback ao usuário.
 Captura da tecla Enter com onKeyDown.
 
 Componentização e organização de código.
+
+## Testes Automatizados
+
+O projeto utiliza **Jest** e **Testing Library** para garantir o correto funcionamento dos componentes React.
+
+### O que é coberto pelos testes:
+- Cadastro de novos usuários (Form)
+- Validação de credenciais no login
+- Exibição e fechamento do Modal
+- Renderização e atualização da Tabela
+
+### Como executar:
+```bash
+npm test
+
