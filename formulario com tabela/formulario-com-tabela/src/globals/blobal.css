@@ -1,0 +1,27 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Rajdhani', sans-serif;
+
+}
+
+:root{
+    --orange: #ff6600;
+    --blue: #00e5ff;
+    --bg: #0a0f18;
+    --panel: rgba(15, 25, 35, 0.85);
+    --border: rgba(0, 229, 255, 0.3);
+    --text: #e0f7fa;
+    
+}
+
+body{
+    background: radial-gradient(circle at center, #1a2a3a 0%, #0a0705 100%);
+    background-attachment: fixed;
+    min-height: 100vh;
+    color: var(--text);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

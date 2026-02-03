@@ -1,0 +1,32 @@
+.searchBar {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.searchBar input {
+  flex: 1;
+  padding: 12px;
+  border-radius: var(--radius);
+  border: 1px solid var(--color-border);
+  background: var(--color-card);
+  color: var(--color-text);
+  font-size: 1rem;
+}
+
+.searchBar input:focus {
+  outline: 2px solid var(--color-accent);
+}
+
+.searchBar button {
+  background: var(--color-accent);
+  border: none;
+  padding: 12px 18px;
+  border-radius: var(--radius);
+  color: white;
+  font-weight: 600;
+}
+
+.searchBar button:hover {
+  background: #1f6feb;
+}

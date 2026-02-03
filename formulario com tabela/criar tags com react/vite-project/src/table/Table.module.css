@@ -1,0 +1,25 @@
+.tabela{
+    max-width: 400px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+table{
+    width: 360px;
+    margin: 10px;
+    border: 1px solid var(--border);
+    color: var(--blue);
+    text-align: center;
+
+}
+
+td, th{
+    width: 180px;
+    height: 30px;
+    border: 1px solid var(--blue);
+}
+
+td{
+    color: var(--orange);
+}
