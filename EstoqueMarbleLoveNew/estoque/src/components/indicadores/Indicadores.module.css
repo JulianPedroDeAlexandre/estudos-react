@@ -1,0 +1,36 @@
+
+.celtop{
+    text-align: center;
+    border: 1px solid black;
+    width: 300px;
+    border-radius: 5px;
+    padding: 5px;
+    box-shadow: 0 0 10px rgba(255,255,255,0.1);
+}
+
+.infobotton{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    margin: 5px 20px 5px 20px;
+}
+
+.icon{
+    height: 30px;
+    width: 30px;
+    background-color: grey;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.indicadores{
+    margin: 50px 0 50px 0;
+    width: 85vw;
+    height: auto;
+    /* border: 1px solid black; */
+    display: flex;
+    justify-content: space-between;
+}
