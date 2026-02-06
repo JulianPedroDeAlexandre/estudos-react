@@ -1,7 +1,7 @@
 import React from 'react'
 import style from "./Produtopesquisa.module.css"
 
-const Produtopesquisa = () => {
+const Produtopesquisa = ({abremodal}) => {
     return (
         <div className={style.pesquisaadd}>
             <div className={style.esquerda}>
@@ -9,7 +9,7 @@ const Produtopesquisa = () => {
                     <button className={style.pesq}>Pesquisar</button>
             </div>
             <div className={style.direita}>
-                <button className={style.addproduto} id="btAdd">Adicionar novo produto</button>
+                <button className={style.addproduto} onClick={abremodal}>Adicionar novo produto</button>
             </div>
 
         </div>

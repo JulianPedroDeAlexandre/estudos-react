@@ -12,6 +12,7 @@ th, td{
 table{
     width: 85vw;
     box-shadow: 0 0 10px rgba(255,255,255,0.1);
+    margin-bottom: 50px;
 
 }
 
@@ -36,19 +37,6 @@ button, #send, #close{
     cursor: pointer;
 }
 
-#send, #close{
-    height: 30px;
-    width: 60px;
-}
-
-#close{
-    margin-top: 10px;
-    margin-left: 80px;
-}
-
-#send{
-    margin-left: 82%
-}
 
 .invalue{
     width: 50px;

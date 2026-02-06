@@ -1,0 +1,102 @@
+.modal{
+    display: none;
+
+}
+.modal.ativa{
+    display: block;
+}
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  background-color: #fff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  max-width: 700px;
+  margin: 0 auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%)
+}
+
+.esq {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* gap: 15px; */
+  /* flex: 1; */
+  min-width: 150px;
+}
+
+.esq label {
+  font-weight: 300;
+  font-size: 20px;
+  color: #333;
+  margin: 15px 0 15px 0;
+}
+
+.dir {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 15px;
+  flex: 2;
+  min-width: 250px;
+}
+
+.dir input[type="text"],
+.dir input[type="number"],
+.dir input[type="file"] {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.dir input:focus {
+  border-color: #0077cc;
+  box-shadow: 0 0 0 2px rgba(0, 119, 204, 0.2);
+  outline: none;
+}
+
+.dir {
+  margin-top: 10px;
+  align-self: flex-start;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 8px;
+  /* background-color: #0077cc; */
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.dir button:hover {
+  background-color: #333;
+}
+
+input[type="file"] {
+  background-color: #f8f9fa;
+  border: 1px dashed #aaa;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.enviar, .fechar{
+    height: 30px;
+    width: 60px;
+}
+
+.fechar{
+    margin-top: 10px;
+    margin-left: 80px;
+}
+
+.enviar{
+    margin-left: 82%;
+}
