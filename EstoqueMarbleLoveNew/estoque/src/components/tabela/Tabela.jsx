@@ -3,7 +3,7 @@ import React from 'react'
 import style from "./Tabela.module.css"
 // import imagemteste from "../../assets/41bNCkmY8-L.jpg"
 
-const Tabela = ({ produtos, defaultImage }) => {
+const Tabela = ({ produtos, defaultImage, valorEntrada, handleValorEntrada, addValorEntrada, removeValorEntrada, removeItemEstoque }) => {
     return (
         <div>
             <table id="tableAdd">
@@ -12,7 +12,7 @@ const Tabela = ({ produtos, defaultImage }) => {
                         <th>imagem</th>
                         <th>cor</th>
                         <th>nome</th>
-                        <th>codigo</th>
+                        <th>SKU</th>
                         <th>estoque total</th>
                         <th>+/-</th>
                         <th>valor compra</th>
@@ -32,17 +32,21 @@ const Tabela = ({ produtos, defaultImage }) => {
                             <td>{p.codigo}</td>
                             <td>{p.estoque}</td>
                             <td>
-                                <button>-1</button>
-                                <button>+1</button>
-                                <input className={style.invalue} type="number" />
-                                <button>add</button>
+                                <input className={style.invalue} 
+                                value={p.valorEntrada} 
+                                onChange={(e) => handleValorEntrada(index, e.target.value)} 
+                                type="number" 
+                                placeholder='1' 
+                                />
+                                <button onClick={() => addValorEntrada(index)}>+</button> 
+                                <button onClick={() => removeValorEntrada(index)}>-</button>
                             </td>
                             <td>R$ {p.compra}</td>
                             <td>R$ {p.venda}</td>
                             <td>R$ {p.estoque * p.venda}</td>
                             <td>
                                 <button>Editar</button>
-                                <button>Excluir</button>
+                                <button onClick={() => removeItemEstoque(index)}>Excluir</button>
                             </td>
                         </tr>
                     ))}

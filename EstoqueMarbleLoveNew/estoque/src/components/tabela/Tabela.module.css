@@ -40,4 +40,12 @@ button, #send, #close{
 
 .invalue{
     width: 50px;
+    border-radius: 5px;
+    border: 1px solid black;
+    padding: 2px 6px 2px 6px;
+    margin: 3px;
+    background-color: #1e1e1e;
+    border: solid 1px #555;
+    color: #eee;
+    cursor: pointer;
 }

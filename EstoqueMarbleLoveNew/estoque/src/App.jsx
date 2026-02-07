@@ -10,14 +10,17 @@ function App() {
 
   const [modalAberto, setModalAberto] = useState(false)
   const [file, setFile] = useState(null);
-  const [cor, setCor] = useState("");
-  const [nome, setNome] = useState("");
-  const [codigo, setCodigo] = useState("");
+  const [cor, setCor] = useState("Inox");
+  const [nome, setNome] = useState("Torneira apl");
+  const [codigo, setCodigo] = useState("fd254f");
   const [estoque, setEstoque] = useState(5);
   const [compra, setCompra] = useState(250);
   const [venda, setVenda] = useState(400);
   const [produtos, setProdutos] = useState([])
   const [defaultImage] = useState(imagemteste)
+  const [valorInOut, setValorInOut] = useState (1)
+  const [valoresEntrada, setValoresEntrada] = useState({});
+
   
   const handleFile = (e) => setFile(e.target.files[0]);
   const handleCor = (e) => setCor(e.target.value);
@@ -26,6 +29,7 @@ function App() {
   const handleEstoque = (e) => setEstoque(e.target.value);
   const handleCompra = (e) => setCompra(e.target.value);
   const handleVenda = (e) => setVenda(e.target.value);
+  // const handleValorEntrada = (e) => setValorInOut(e.target.value);
 
   const envia = () => {
     const novoProduto = {
@@ -36,6 +40,7 @@ function App() {
       estoque,
       compra,
       venda,
+      valorEntrada:1,
     };
 
     setProdutos([...produtos, novoProduto])
@@ -51,9 +56,39 @@ function App() {
     setModalAberto(false)
   }
 
-  const totalEstoque = produtos.reduce((est, p) => est + Number(p.estoque), 0)
-  const totalGasto = produtos.reduce((gast, p) => gast + Number(p.compra * estoque), 0)
-  const totalReceber = produtos.reduce((rec, p) => rec + Number(p.venda * estoque), 0)
+  const handleValorEntrada = (index, value) => {
+    const novosProdutos = [...produtos];
+    novosProdutos[index].valorEntrada = Number(value);
+    setProdutos(novosProdutos);
+  };
+
+  const addValorEntrada = (index) =>{
+    const novosProdutos = [...produtos];
+    const produto = novosProdutos[index]
+    produto.estoque = Number(produto.estoque) + Number(produto.valorEntrada)
+    // novosProdutos[index].estoque = Number(novosProdutos[index].estoque) + Number(novosProdutos[index].valorEntrada);
+    setProdutos(novosProdutos);
+
+  }
+
+  const removeValorEntrada = (index) =>{
+    const novosProdutos = [...produtos];
+    const produto = novosProdutos[index];
+    const novoEstoque = Number(produto.estoque) - Number(produto.valorEntrada);
+    produto.estoque = novoEstoque < 0 ? 0 : novoEstoque;
+    setProdutos(novosProdutos)
+
+  }
+
+  // const removeItemEstoque = (index) => {
+  //   setProdutos((produtos) => produtos.filter((item, i) => !== index));
+
+  // }
+
+const totalEstoque = produtos.reduce((acc, p) => acc + Number(p.estoque), 0);
+const totalGasto = produtos.reduce((acc, p) => acc + Number(p.compra) * Number(p.estoque), 0);
+const totalReceber = produtos.reduce((acc, p) => acc + (Number(p.venda) * Number(p.estoque) - Number(p.compra) * Number(p.estoque)), 0);
+
 
   return (
     <>
@@ -69,7 +104,7 @@ function App() {
           icon="bx  bx-print-dollar"
         />
         <Indicadores
-          titulo={"Valor a Receber"}
+          titulo={"Lucro"}
           valor={totalReceber}
           icon="bx  bx-print-dollar"
         />
@@ -80,6 +115,11 @@ function App() {
       <Tabela
         produtos={produtos}
         defaultImage={defaultImage}
+        valorEntrada={valorInOut}
+        handleValorEntrada={handleValorEntrada}
+        addValorEntrada={addValorEntrada}
+        removeValorEntrada={removeValorEntrada}
+        // removeItemEstoque={removeItemEstoque}
       />
       <div className="modal">
         {modalAberto && <Modal onClose={fecha}
