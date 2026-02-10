@@ -3,7 +3,7 @@ import React from 'react'
 import style from "./Tabela.module.css"
 // import imagemteste from "../../assets/41bNCkmY8-L.jpg"
 
-const Tabela = ({ produtos, defaultImage, valorEntrada, handleValorEntrada, addValorEntrada, removeValorEntrada, removeItemEstoque }) => {
+const Tabela = ({ produtos, defaultImage, valorEntrada, handleValorEntrada, addValorEntrada, removeValorEntrada, removeItemEstoque, editarItemEstoque }) => {
     return (
         <div>
             <table id="tableAdd">
@@ -45,7 +45,7 @@ const Tabela = ({ produtos, defaultImage, valorEntrada, handleValorEntrada, addV
                             <td>R$ {p.venda}</td>
                             <td>R$ {p.estoque * p.venda}</td>
                             <td>
-                                <button>Editar</button>
+                                <button onClick={() => editarItemEstoque(index)}>Editar</button>
                                 <button onClick={() => removeItemEstoque(index)}>Excluir</button>
                             </td>
                         </tr>

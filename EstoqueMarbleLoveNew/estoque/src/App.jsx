@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Indicadores from './components/indicadores/Indicadores'
 import "../src/globals/globals.css"
 import Produtopesquisa from './components/produtoEpesquisa/Produtopesquisa'
@@ -6,8 +6,8 @@ import Tabela from './components/tabela/Tabela'
 import Modal from './components/modal/Modal'
 import imagemteste from "../src/assets/41bNCkmY8-L.jpg"
 
-function App() {
 
+function App() {
   const [modalAberto, setModalAberto] = useState(false)
   const [file, setFile] = useState(null);
   const [cor, setCor] = useState("Inox");
@@ -20,6 +20,8 @@ function App() {
   const [defaultImage] = useState(imagemteste)
   const [valorInOut, setValorInOut] = useState (1)
   const [valoresEntrada, setValoresEntrada] = useState({});
+  const [produtoEditando, setProdutoEditando] = useState(null);
+  const [pesquisa, setPesquisa] = useState ("");
 
   
   const handleFile = (e) => setFile(e.target.files[0]);
@@ -30,6 +32,17 @@ function App() {
   const handleCompra = (e) => setCompra(e.target.value);
   const handleVenda = (e) => setVenda(e.target.value);
   // const handleValorEntrada = (e) => setValorInOut(e.target.value);
+
+  useEffect(() =>{
+    localStorage.setItem("produtos", JSON.stringify(produtos));
+}, [produtos]);
+
+useEffect(() => {
+  const produtosSalvos = localStorage.getItem("produtos");
+  if(produtosSalvos){
+    setProdutos(JSON.parse(produtosSalvos))
+  }
+}, []);
 
   const envia = () => {
     const novoProduto = {
@@ -43,9 +56,18 @@ function App() {
       valorEntrada:1,
     };
 
+    if(produtoEditando != null){
+      const novosProdutos = [...produtos];
+      novosProdutos[produtoEditando] = novoProduto;
+      setProdutos(novosProdutos);
+      setProdutoEditando(null);
+    }else{
     setProdutos([...produtos, novoProduto])
+     
+    }
+
     fecha();
-  }
+  };
 
   const abremodal = () => {
     setModalAberto(true)
@@ -80,10 +102,30 @@ function App() {
 
   }
 
-  // const removeItemEstoque = (index) => {
-  //   setProdutos((produtos) => produtos.filter((item, i) => !== index));
+  const removeItemEstoque = (index) => {
+    setProdutos((produtos) => produtos.filter((item, i) => i !== index));
 
-  // }
+  };
+
+ const editarItemEstoque = (index) => {
+  const produto = produtos[index];
+  setProdutoEditando(index); 
+  setFile(produto.file);
+  setCor(produto.cor);
+  setNome(produto.nome);
+  setCodigo(produto.codigo);
+  setEstoque(produto.estoque);
+  setCompra(produto.compra);
+  setVenda(produto.venda);
+  setModalAberto(true);
+};
+
+const produtosFiltrados = produtos.filter((p) =>
+  p.nome.toLowerCase().includes(pesquisa.toLowerCase()) ||
+  p.codigo.toLowerCase().includes(pesquisa.toLowerCase()) ||
+  p.cor.toLowerCase().includes(pesquisa.toLowerCase())
+);
+ 
 
 const totalEstoque = produtos.reduce((acc, p) => acc + Number(p.estoque), 0);
 const totalGasto = produtos.reduce((acc, p) => acc + Number(p.compra) * Number(p.estoque), 0);
@@ -111,15 +153,19 @@ const totalReceber = produtos.reduce((acc, p) => acc + (Number(p.venda) * Number
       </div>
       <Produtopesquisa
         abremodal={abremodal}
+        pesquisa={pesquisa}
+        setPesquisa={setPesquisa}
       />
       <Tabela
-        produtos={produtos}
+        // produtos={produtos}
         defaultImage={defaultImage}
         valorEntrada={valorInOut}
         handleValorEntrada={handleValorEntrada}
         addValorEntrada={addValorEntrada}
         removeValorEntrada={removeValorEntrada}
-        // removeItemEstoque={removeItemEstoque}
+        removeItemEstoque={removeItemEstoque}
+        editarItemEstoque={editarItemEstoque}
+        produtos={produtosFiltrados}
       />
       <div className="modal">
         {modalAberto && <Modal onClose={fecha}
